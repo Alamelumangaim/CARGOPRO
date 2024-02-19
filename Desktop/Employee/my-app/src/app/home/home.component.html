@@ -1,0 +1,96 @@
+<div style="display: flex;justify-content: center;text-align: left;width: 100%;">
+    <div class="card-container" >
+        <form [formGroup]="employeeForm" (ngSubmit)="SubmitForm()">   
+        <h2 style="color: rgb(116, 115, 68);font-weight: 600;text-align: center;font-family: 'Julius Sans One', sans-serif;">EMPLOYEE FORM</h2>
+        <br>
+        <div class="field">
+            <label for="employeeid" style="color:  rgb(116, 115, 68);font-weight: 600;font-family: 'Quicksand', sans-serif;">Employeeid</label>
+            <input type="text" pInputText formControlName="employeeid" class="w-full" placeholder="Type your employeeid" name="employeeid"/>
+            <small *ngIf="employeeForm.controls['employeeid'].invalid && (employeeForm.controls['employeeid'].dirty || employeeForm.controls['employeeid'].touched)" class="block p-error">
+                <div *ngIf="employeeForm.controls['employeeid'].errors?.['required']">Employee id is required</div>
+                <div *ngIf="employeeForm.controls['employeeid'].errors?.['max']">Employee id is invalid</div>
+            </small>
+        </div><br>
+        <div class="field">
+            <label for="name" style="color:  rgb(116, 115, 68);font-weight: 600;font-family: 'Quicksand', sans-serif;">Name</label>
+            <input  maxlength="25" type="text" pInputText formControlName="name" class="w-full" placeholder="Type your name" name="name"/>
+            <small *ngIf="employeeForm.controls['name'].invalid && (employeeForm.controls['name'].dirty || employeeForm.controls['name'].touched)" class="block p-error">
+                <div *ngIf="employeeForm.controls['name'].errors?.['required']">Name is required</div>
+                <div *ngIf="employeeForm.controls['name'].errors?.['invalid']">Name exceeds length</div>
+                <div *ngIf="employeeForm.controls['name'].errors?.['pattern']">Name should be in uppercase</div>
+            </small>
+        </div><br>
+        <div class="field">
+          <label for="name" style="color:  rgb(116, 115, 68);font-weight: 600;font-family: 'Quicksand', sans-serif;">Age</label>
+          <input type="text" pInputText formControlName="age" class="w-full" placeholder="Type your age" name="age"/>
+          <small *ngIf="employeeForm.controls['age'].invalid && (employeeForm.controls['age'].dirty || employeeForm.controls['age'].touched)" class="block p-error">
+              <div *ngIf="employeeForm.controls['age'].errors?.['required']">Age is required</div>
+              <div *ngIf="employeeForm.controls['age'].errors?.['age']">Age is invalid</div>
+          </small>
+      </div><br>
+      <div class="field">
+        <label for="name" style="color:  rgb(116, 115, 68);font-weight: 600;font-family: 'Quicksand', sans-serif;">Address</label>
+        <input type="text" pInputText formControlName="address" class="w-full" placeholder="Type your address" name="address"/>
+        <small *ngIf="employeeForm.controls['address'].invalid && (employeeForm.controls['address'].dirty || employeeForm.controls['address'].touched)" class="block p-error">
+            <div *ngIf="employeeForm.controls['address'].errors?.['required']">Address is required</div>
+            <div *ngIf="employeeForm.controls['address'].errors?.['address']">Address is invalid</div>
+        </small>
+      </div><br>
+      <div class="field">
+        <label for="name" style="color:  rgb(116, 115, 68);font-weight: 600;font-family: 'Quicksand', sans-serif;">Salary</label>
+        <input type="number" pInputText formControlName="salary" class="w-full" placeholder="Type your salary" name="salary"/>
+        <small *ngIf="employeeForm.controls['salary'].invalid && (employeeForm.controls['salary'].dirty || employeeForm.controls['salary'].touched)" class="block p-error">
+            <div *ngIf="employeeForm.controls['salary'].errors?.['required']">Salary is required</div>
+            <div *ngIf="employeeForm.controls['salary'].errors?.['salary']">Salary is invalid</div>
+        </small>
+      </div><br>
+        <div class="field">
+            <label for="dob" style="color:  rgb(116, 115, 68);font-weight: 600;font-family: 'Quicksand', sans-serif;">Date of Birth</label>
+            <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob" name="dob" class="w-full" />
+           
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <small *ngIf="employeeForm.controls['dob'].invalid && (employeeForm.controls['dob'].dirty || employeeForm.controls['dob'].touched)" class="block p-error">
+                <div *ngIf="employeeForm.controls['dob'].errors?.['required']">Date of Birth is required</div>
+                <div *ngIf="employeeForm.controls['dob'].errors?.['pattern']">Date of Birth is invalid</div>
+            </small>
+        </div><br>
+        <div class="field">
+          <label for="role" style="color:  rgb(116, 115, 68);font-weight: 600;font-family: 'Quicksand', sans-serif;">Department</label>
+          <mat-radio-group aria-label="Select an option" formControlName="dept">
+              <mat-radio-button value="CSE" >CSE</mat-radio-button>
+              <mat-radio-button value="IT">IT</mat-radio-button>
+              <mat-radio-button value="EEE">EEE</mat-radio-button>
+            </mat-radio-group>
+            <small *ngIf="employeeForm.controls['dept'].invalid && (employeeForm.controls['dept'].dirty || employeeForm.controls['dept'].touched)" class="block p-error">
+              <div *ngIf="employeeForm.controls['dept'].errors?.['required']">Department is required</div>
+              <div *ngIf="employeeForm.controls['dept'].errors?.['pattern']">Department is invalid</div>
+          </small>
+         </div><br>
+        
+        
+       <div class="field">
+        <label for="role" style="color:  rgb(116, 115, 68);font-weight: 600;font-family: 'Quicksand', sans-serif;">Role</label>
+        <mat-radio-group aria-label="Select an option" formControlName="experience">
+            <mat-radio-button value="Experienced" >Experienced</mat-radio-button>
+            <mat-radio-button value="Fresher">Fresher</mat-radio-button>
+          </mat-radio-group>
+          <small *ngIf="employeeForm.controls['experience'].invalid && (employeeForm.controls['experience'].dirty || employeeForm.controls['experience'].touched)" class="block p-error">
+            <div *ngIf="employeeForm.controls['experience'].errors?.['required']">Name is required</div>
+            <div *ngIf="employeeForm.controls['experience'].errors?.['pattern']">Name is invalid</div>
+          </small>
+       </div>
+       
+      
+        <br>
+        <div style="display: flex;justify-content: center;flex-direction: row;gap: 15px;">
+            <p-toast></p-toast>
+            <button style="border: none;border-radius: 5px; background-color: #A68C32;padding: 10px;color: white;font-weight: 600;width:max-content;height: 44px;font-size: 15px;">SUBMIT</button><br>
+            <a routerLink="/table" routerLinkActive="active" ariaCurrentWhenActive="page"><button style="border: none;border-radius: 5px; background-color: #A68C32;padding: 10px;color: white;font-weight: 600;width:max-content;height: 44px;font-size: 15px;">VIEW TABLE</button></a>
+        </div>
+     
+     
+    </form> 
