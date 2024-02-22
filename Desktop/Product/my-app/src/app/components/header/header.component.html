@@ -1,0 +1,20 @@
+
+
+<div class="navbar">
+    
+    
+
+    <p>CARGOPRO</p>
+    <div style="display: flex;justify-content: flex-end;gap: 20px;align-items: center;">
+        <div class="inventory1">
+            <a *ngIf="isInventoryRequired" routerLink="/inventory" routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none;color: black;"><button style="font-family: 'Julius Sans One', sans-serif" >Inventory</button></a>
+        </div>
+        <div class="delivery1">
+            <a *ngIf="isDeliveryRequired" routerLink="/delivery" routerLinkActive="active" ariaCurrentWhenActive="page" style="text-decoration: none;color: black;"><button style="font-family: 'Julius Sans One', sans-serif" (click)="but()">DELIVERY</button></a>
+        </div>
+        <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="isLoginRequired"><button>Login</button></a>
+        <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" *ngIf="!isLoginRequired"><button>Logout</button></a>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

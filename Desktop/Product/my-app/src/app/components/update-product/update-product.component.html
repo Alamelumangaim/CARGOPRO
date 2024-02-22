@@ -1,0 +1,27 @@
+<br><br>
+<div style="display: flex;justify-content: center;align-items: center;">
+    
+    <div class="form">
+        <h2 style="font-family:  'Julius Sans One', sans-serif;text-align: center;font-size: large">UPDATE</h2>
+        <br><br>
+        <form [formGroup]="updateForm" (ngSubmit)="SubmitForm()">
+            
+          
+            <mat-form-field>
+                <mat-label>Status</mat-label>
+                <input matInput formControlName="status" name="status">
+                <small  *ngIf="(this.updateForm.controls['status'].invalid) && (this.updateForm.controls['status'].dirty || this.updateForm.controls['status'].touched)">
+                    <div *ngIf="updateForm.controls['status'].errors?.['required']">Name is required</div>
+                </small>
+            </mat-form-field>
+            
+           
+            
+            <div style="display: flex;justify-content: center;">
+                <button type="submit">UPDATE</button>
+            </div><br>
+            
+        </form>
+    </div>
+    <br>
+</div>

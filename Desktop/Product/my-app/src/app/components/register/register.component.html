@@ -1,0 +1,55 @@
+<div class="navbar">
+    <p>CARGOPRO</p>
+    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page"></a>
+</div>
+<br><br>
+
+<div style="display: flex;justify-content: center;align-items: center;">
+    <div class="form">
+        <h2 style="font-family:  'Julius Sans One', sans-serif;text-align: center;">REGISTER</h2><br>
+        <form [formGroup]="registerForm" (ngSubmit)="SubmitForm()">
+            
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" name="name">
+                <small  *ngIf="(this.registerForm.controls['name'].invalid) && (this.registerForm.controls['name'].dirty || this.registerForm.controls['name'].touched)">
+                    <div *ngIf="registerForm.controls['name'].errors?.['required']">Name is required</div>
+                </small>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" name="email">
+                <small *ngIf="this.registerForm.controls['email'].invalid && (this.registerForm.controls['email'].dirty || this.registerForm.controls['email'].touched)">
+                <div *ngIf="registerForm.controls['email'].errors?.['required']">Email is required</div>
+                <div *ngIf="registerForm.controls['email'].errors?.['email']">Enter valid email</div>
+                </small>
+                
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password" name="password">
+                <small *ngIf="this.registerForm.controls['password'].invalid && (this.registerForm.controls['password'].dirty) || this.registerForm.controls['password'].touched">
+                    <div *ngIf="registerForm.controls['password'].errors?.['required']">Password is required</div>
+                </small>
+            </mat-form-field>
+            
+            <mat-radio-group aria-label="Select an option" formControlName="role">
+                <mat-radio-button value="Inventory" >Inventory</mat-radio-button>
+                <mat-radio-button value="Delivery">Delivery</mat-radio-button>
+              </mat-radio-group>
+              <br>
+             
+
+            <div style="display: flex;justify-content: center;">
+                
+                <button type="submit">REGISTER</button>
+                <p-toast></p-toast>
+            </div><br>
+            <div style="display: flex;justify-content: center;flex-direction: row;">
+                <span style="color: rgb(81, 81, 81);font-family: 'Roboto Flex', sans-serif;">Already have an account</span><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page" style="color: rgb(48, 48, 48);font-family: 'Roboto Flex', sans-serif;text-decoration: none;margin-left: 5px;font-weight: 600;"><span>Login</span></a>
+            </div>
+        </form>
+    </div>
+</div>
+<router-outlet></router-outlet>
+

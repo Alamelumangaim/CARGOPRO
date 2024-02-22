@@ -1,0 +1,64 @@
+.image img{
+    width: 100%;
+}
+.first{
+    position: absolute;
+    top: 40%;
+    left: 65%;
+    color: white;
+    font-size: 40px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 900;
+}
+.second{
+    position: absolute;
+    top: 45%;
+    left: 65%;
+    color: white;
+    font-size: 60px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 900;
+}
+.content{
+    position: absolute;
+    top: 55%;
+    left: 65%;
+    color: white;
+    font-size: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+}
+button{
+    position: absolute;
+    top: 67%;
+    left: 65%;
+    background-color: #373662;
+    color: white;
+    border-radius: 10px;
+    width: max-content;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: large;
+    font-family: "Roboto", sans-serif;
+    border: none;
+}
+/* #map { 
+    height: 100vh;
+    width: 100%;
+ }
+ p {
+    font-family: Lato;
+  }
+  
+  .fs-container {
+      width:100%;
+      height:100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+  } */
+  .map {
+    height: 100%;
+    padding: 0;
+  }

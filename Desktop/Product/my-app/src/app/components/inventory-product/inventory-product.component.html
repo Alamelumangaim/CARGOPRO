@@ -1,0 +1,55 @@
+<div style="display: flex;flex-direction: row;">  
+    <app-inventory-menu></app-inventory-menu>
+    <div style="display: flex;align-items: center;flex-direction: column;margin-top: 10%;width: 80%;">
+        <div style="width: 100%;">
+            <table mat-table matSort [dataSource]="datasource">
+
+                <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+                <!-- Position Column -->
+                <ng-container matColumnDef="Product ID">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef> Product Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.productId}} </td>
+                </ng-container>
+            
+                <!-- Name Column -->
+                <ng-container matColumnDef="Category">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+                <td mat-cell *matCellDef="let element"> {{element.productCategory}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"><p style="background-color: rgb(173, 173, 21);padding: 10px;width: max-content;color: white;border-radius: 10px;"> {{element.status}} </p></td>
+                </ng-container>
+                <ng-container matColumnDef="Expiry Date">
+                    <th mat-header-cell *matHeaderCellDef> Expiry Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.expiryDate}} </td>
+                </ng-container>
+
+
+                <!-- Update -->
+                <ng-container matColumnDef="Update">
+                    <th mat-header-cell *matHeaderCellDef> Update </th>
+                    <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)="UpdateProduct(element.id)">Update</button> </td>
+                </ng-container>
+                <ng-container matColumnDef="Assign">
+                    <th mat-header-cell *matHeaderCellDef> Assign </th>
+                    <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" 
+                     *ngIf="element.status=='OutForDelivery'" (click)="AssignDelivery(element.id)">Assign</button> </td>
+                </ng-container>
+            
+            
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                            showFirstLastButtons
+                            aria-label="Select page of periodic elements">
+            </mat-paginator>
+    
+        </div>
+    </div>
+</div>  

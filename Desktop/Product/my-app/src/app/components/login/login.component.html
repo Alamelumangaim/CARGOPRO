@@ -1,0 +1,42 @@
+
+<app-header></app-header>
+<br>
+<br>
+<div style="display: flex;justify-content: center;align-items: center;">
+    <div class="form">
+        <h2 style="font-family:  'Julius Sans One', sans-serif;text-align: center;">LOGIN</h2><br>
+        <form [formGroup]="loginForm" (ngSubmit)="SubmitForm()">
+            
+           
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" name="username">
+                <small *ngIf="this.loginForm.controls['username'].invalid && (this.loginForm.controls['username'].dirty || this.loginForm.controls['username'].touched)">
+                <div *ngIf="loginForm.controls['username'].errors?.['required']">Username is required</div>
+                <div *ngIf="loginForm.controls['username'].errors?.['username']">Enter valid username</div>
+                </small>
+                
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password" name="password">
+                <small *ngIf="this.loginForm.controls['password'].invalid && (this.loginForm.controls['password'].dirty) || this.loginForm.controls['password'].touched">
+                    <div *ngIf="loginForm.controls['password'].errors?.['required']">Password is required</div>
+                </small>
+            </mat-form-field>
+           
+            <div style="display: flex;justify-content: center;">
+                <button type="submit" pButton class="p-button-success">LOGIN</button>
+                <!-- <p-toast></p-toast> -->
+                
+            </div><br>
+            <div style="display: flex;justify-content: center;flex-direction: row;">
+                <p-toast></p-toast>
+                <span style="color: rgb(81, 81, 81);font-family: 'Roboto Flex', sans-serif;">Don't have an account</span><a routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page" style="color: rgb(48, 48, 48);font-family: 'Roboto Flex', sans-serif;text-decoration: none;margin-left: 5px;font-weight: 600;"><span >Register</span></a>
+            </div>
+        </form>
+    </div>
+</div>
+<router-outlet></router-outlet>
+
+

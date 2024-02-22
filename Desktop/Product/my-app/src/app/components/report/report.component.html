@@ -1,0 +1,9 @@
+<div style="display: flex;flex-direction: row;">  
+    <app-inventory-menu *ngIf="!isDelivery"></app-inventory-menu>
+    <app-menu *ngIf="isDelivery"></app-menu>
+    <div style="display: flex;justify-content: center;">
+        <div style="display: flex;align-items: center;transform: translateX(280%);">
+            <button (click)="generatePDF()">Open PDF</button>
+        </div>
+    </div>
+</div>

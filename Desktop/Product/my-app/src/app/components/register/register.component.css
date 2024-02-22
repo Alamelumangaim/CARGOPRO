@@ -1,0 +1,44 @@
+.form form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+}
+form button{
+    background-color:#373662;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-weight: 600;
+    width: max-content;
+    height: max-content;
+    border-radius: 15px;
+}
+button{
+    background-color: #373662;
+    color: white;
+    border-radius: 10px;
+    width: max-content;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: large;
+    font-family: "Roboto", sans-serif;
+    border: none;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #F7EBC2;
+    padding: 20px;
+    align-items: center;
+}
+.navbar p{
+    font-size: larger;
+    font-family: "Julius Sans One", sans-serif;
+}

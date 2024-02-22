@@ -1,0 +1,15 @@
+form button{
+    background-color:#373662;
+    border: none;
+    padding: 15px;
+    color: white;
+    font-weight: 600;
+    width: max-content;
+    height: max-content;
+    border-radius: 15px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

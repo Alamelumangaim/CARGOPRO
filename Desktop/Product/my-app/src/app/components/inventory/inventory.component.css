@@ -1,0 +1,23 @@
+button{
+    background-color: #373662;
+    color: white;
+    border-radius: 10px;
+    width: max-content;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: large;
+    font-family: "Roboto", sans-serif;
+    border: none;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: #F7EBC2;
+    padding: 20px;
+    align-items: center;
+}
+.navbar p{
+    font-size: larger;
+    font-family: "Julius Sans One", sans-serif;
+}
